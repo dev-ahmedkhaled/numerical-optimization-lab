@@ -52,6 +52,23 @@ f(x, y) = x^2 + 2y^2 - 2xy
 └── README.md
 
 ---
+## Outputs
+
+All generated plots are saved inside the outputs folder.
+
+### Optimization Paths
+Shows convergence of Gradient Descent, Steepest Descent, and Newton’s Method.
+
+![Optimization Paths](outputs/unconstrained_convergence.png)
+
+---
+
+### Quasi-Newton Comparison
+Comparison between Gradient Descent, Newton’s Method, and BFGS.
+
+![Quasi Newton Comparison](outputs/quasi_newton_convergence.png)
+
+---
 
 
 
