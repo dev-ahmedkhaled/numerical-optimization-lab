@@ -115,3 +115,4 @@ This project demonstrates:
 
 University project on Optimization Techniques  
 Focused on implementing and visualizing classical optimization methods
+
