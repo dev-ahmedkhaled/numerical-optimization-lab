@@ -373,12 +373,11 @@ def plot_kkt():
 
 
 def plot_combined():
-    """Plot Combined Constraints visualization."""
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 5))
     fig.suptitle('Combined Constraints — min (x-1)²+(y-2)²+(z-3)²  s.t.  x+y+z=6,  x≥1',
                  fontsize=13, fontweight='bold', color='#1E2761')
 
-    # Left: 2D projection
+    # Left panel (unchanged)
     ax1.set_xlim(-0.5, 4); ax1.set_ylim(-0.5, 4); ax1.set_aspect('equal')
     x_pts = np.linspace(0, 4, 50)
     y_pts = np.linspace(0, 4, 50)
@@ -387,46 +386,50 @@ def plot_combined():
     F_plane = (X_pts-1)**2 + (Y_pts-2)**2 + (Z_pts-3)**2
     valid = Z_pts >= 0
     ax1.contour(X_pts, Y_pts, np.where(valid, F_plane, np.nan), levels=15, cmap='viridis', alpha=0.7)
-
+    
     ax1.axvline(x=1, color='red', linewidth=2.5, linestyle='--', label='x = 1 (boundary)')
     ax1.fill_betweenx([-0.5, 4], 1, 4, alpha=0.15, color='green', label='Feasible: x ≥ 1')
     ax1.plot(1, 2, 'r*', markersize=18, markeredgecolor='black', markeredgewidth=1.5,
              label='Optimum: x*=(1,2,3), f*=0')
     ax1.plot(1, 2, 'go', markersize=10, markerfacecolor='white', markeredgewidth=2,
              label='Same point! (unconstrained min satisfies constraints)')
-
+    
     ax1.set_xlabel('x'); ax1.set_ylabel('y')
     ax1.set_title('Projection onto x-y Plane (z = 6-x-y)')
     ax1.legend(fontsize=8.5, loc='upper right')
     ax1.grid(True, alpha=0.3)
 
-    # Right: Explanation
+    # Right panel (FIXED)
     ax2.axis('off'); ax2.set_xlim(0, 10); ax2.set_ylim(0, 10)
     ax2.text(5, 9.5, 'Why is the optimum at (1,2,3)?', fontsize=13, fontweight='bold',
              ha='center', color='#1E2761')
 
+    # Tighter spacing to make room for the box at the bottom
     explanations = [
-        (8.5, 'Unconstrained minimum of f is at (1,2,3)'),
-        (7.8, 'because each squared term is zero there.'),
+        (8.3, 'Unconstrained minimum of f is at (1,2,3)'),
+        (7.7, 'because each squared term is zero there.'),
         (7.1, ''),
-        (6.4, 'Check equality constraint:'),
-        (5.7, 'x + y + z = 1 + 2 + 3 = 6  ✓'),
-        (5.0, ''),
-        (4.3, 'Check inequality constraint:'),
-        (3.6, 'x = 1 ≥ 1  ✓ (active on boundary)'),
-        (2.9, ''),
-        (2.2, 'Since the unconstrained minimum'),
-        (1.5, 'satisfies ALL constraints,'),
-        (0.8, 'it is ALSO the constrained optimum!'),
+        (6.5, 'Check equality constraint:'),
+        (5.9, 'x + y + z = 1 + 2 + 3 = 6  ✓'),
+        (5.3, ''),
+        (4.7, 'Check inequality constraint:'),
+        (4.1, 'x = 1 ≥ 1  ✓ (active on boundary)'),
+        (3.5, ''),
+        (2.9, 'Since the unconstrained minimum'),
+        (2.3, 'satisfies ALL constraints,'),
     ]
     for y, text in explanations:
-        bold = 'unconstrained' in text or 'satisfies' in text or 'ALSO' in text
-        ax2.text(5, y, text, fontsize=10.5, ha='center', fontweight='bold' if bold else 'normal')
+        bold = 'unconstrained' in text or 'satisfies' in text
+        ax2.text(5, y, text, fontsize=10.5, ha='center', 
+                 fontweight='bold' if bold else 'normal')
 
-    rect = plt.Rectangle((0.5, 0.3), 9, 1.2, fill=True, facecolor='#D5F5E3',
+    # FIX: Box at y=0.5 (fully inside visible range y=0 to y=10)
+    rect = plt.Rectangle((0.5, 0.5), 9, 1.3, fill=True, facecolor='#D5F5E3',
                           edgecolor='green', linewidth=2)
     ax2.add_patch(rect)
-    ax2.text(5, 0.9, 'μ = 0 (constraint inactive), λ = 0', fontsize=11, 
+    ax2.text(5, 1.35, 'μ = 0 (inactive), λ = 0', fontsize=11, 
+             fontweight='bold', ha='center', color='darkgreen')
+    ax2.text(5, 0.85, '→ it is ALSO the constrained optimum!', fontsize=10.5,
              fontweight='bold', ha='center', color='darkgreen')
 
     plt.tight_layout()
