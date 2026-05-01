@@ -1,63 +1,117 @@
 # Numerical Optimization Techniques in Python
 
-This project is a comprehensive implementation and visualization of classical optimization algorithms and constrained optimization theory using Python.
+This project implements and visualizes fundamental numerical optimization algorithms used in machine learning and mathematical optimization.
 
-It covers both **theoretical derivations** and **numerical implementations**, making it suitable for understanding how optimization methods behave in practice.
+It combines:
+- Theoretical derivations  
+- Numerical implementations  
+- Visual convergence analysis  
 
 ---
 
-## 📌 Features
+## Algorithms Implemented
 
-### 🔹 Unconstrained Optimization Methods
+### Unconstrained Optimization
 - Gradient Descent (fixed step size)
 - Steepest Descent (Armijo backtracking line search)
-- Newton's Method
-- Quasi-Newton Method (BFGS implementation)
+- Newton’s Method (second-order optimization)
+- BFGS Quasi-Newton Method
 
-### 🔹 Constrained Optimization
+### Constrained Optimization
 - Lagrange Multipliers (equality constraints)
 - Karush-Kuhn-Tucker (KKT) conditions (inequality constraints)
 - Combined equality + inequality constraints
 
-### 🔹 Visualization
-- Contour plots of objective functions
-- Optimization paths of different methods
-- Convergence plots (log-scale error reduction)
+---
+
+## Mathematical Problems Solved
+
+### 1. Quadratic Function
+f(x, y) = (x - 3)^2 + (y - 2)^2
+
+### 2. Coupled Quadratic Function
+f(x, y) = x^2 + 2y^2 - 2xy
+
+### 3. Constrained Optimization
+- Equality constraint: x + y = 4
+- Inequality constraint: x + y >= 4
+
+### 4. Multi-variable Constraint System
+- Sum constraint: x1 + x2 + x3 = 6
+- Bound constraint: xi >= 1
 
 ---
 
-## 📊 Problems Solved
+## Project Structure
 
-1. Quadratic bowl function:
-   \[
-   f(x,y) = (x-3)^2 + (y-2)^2
-   \]
-
-2. Coupled quadratic function:
-   \[
-   f(x,y) = x^2 + 2y^2 - 2xy
-   \]
-
-3. Constrained optimization:
-   - Equality: \( x + y = 4 \)
-   - Inequality: \( x + y \ge 4 \)
-
-4. Combined constrained system:
-   - \( \sum x_i = 6 \)
-   - \( x_i \ge 1 \)
+.
+├── optimization_code.py
+├── outputs/
+│   ├── unconstrained_convergence.png
+│   ├── quasi_newton_convergence.png
+└── README.md
 
 ---
 
-## 🧮 Libraries Used
+## Outputs
 
-- NumPy
-- SciPy (`scipy.optimize.minimize`)
-- Matplotlib
+All generated plots are saved inside the outputs folder.
+
+### Optimization Paths
+Shows convergence of Gradient Descent, Steepest Descent, and Newton’s Method.
+
+![Optimization Paths](outputs/unconstrained_convergence.png)
 
 ---
 
-## 🚀 How to Run
+### Quasi-Newton Comparison
+Comparison between Gradient Descent, Newton’s Method, and BFGS.
 
-### 1. Install dependencies
-```bash
+![Quasi Newton Comparison](outputs/quasi_newton_convergence.png)
+
+---
+
+## Key Insights
+
+- Gradient Descent: simple but slow convergence  
+- Steepest Descent: better direction via line search  
+- Newton’s Method: very fast convergence (quadratic near optimum)  
+- BFGS: approximates Hessian efficiently without second derivatives  
+- KKT Conditions: general framework for constrained optimization  
+
+---
+
+## Libraries Used
+
+- NumPy  
+- SciPy  
+- Matplotlib  
+
+---
+
+## How to Run
+
+Install dependencies:
+
 pip install numpy scipy matplotlib
+
+Run the script:
+
+python optimization_code.py
+
+---
+
+## Learning Outcome
+
+This project demonstrates:
+- How optimization algorithms behave geometrically  
+- Difference between first-order and second-order methods  
+- How constraints affect optimal solutions  
+- Connection between theory (KKT/Lagrange) and implementation  
+
+---
+
+## Author
+
+University project on Optimization Techniques  
+Focused on implementing and visualizing classical optimization methods
