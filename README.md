@@ -77,7 +77,7 @@ This will:
 
 ## 📊 Results & Visualizations
 
-All generated figures are saved in the `outputs/` folder.
+All generated figures are saved in the `imgs/` folder.
 
 ---
 
@@ -85,7 +85,7 @@ All generated figures are saved in the `outputs/` folder.
 
 #### Figure 1: Spherical Bowl — `f(x,y) = (x-3)² + (y-2)²`
 
-![Unconstrained Convergence](outputs/unconstrained_convergence.png)
+![Unconstrained Convergence](imgs/unconstrained_convergence.png)
 
 **Observations:**
 - **Newton's Method** (green): Converges in **1 iteration** — exact for quadratics
@@ -98,7 +98,7 @@ All generated figures are saved in the `outputs/` folder.
 
 #### Figure 2: Elongated Valley — `f(x,y) = x² + 2y² - 2xy`
 
-![Quasi-Newton Convergence](outputs/quasi_newton_convergence.png)
+![Quasi-Newton Convergence](imgs/quasi_newton_convergence.png)
 
 **Observations:**
 - **Newton's Method** (green): **1 iteration** — again exact
@@ -116,7 +116,7 @@ All generated figures are saved in the `outputs/` folder.
 
 **Problem:** `min x² + y²` subject to `x + y = 4`
 
-![Lagrange Multipliers](outputs/lagrange_multipliers.png)
+![Lagrange Multipliers](imgs/lagrange_multipliers.png)
 
 **Key Insights:**
 - **Left**: The gradient of the objective `∇f = (4,4)` is parallel to the gradient of the constraint `∇g = (1,1)` at the optimum — this is the Lagrange condition `∇f = λ∇g`
@@ -129,7 +129,7 @@ All generated figures are saved in the `outputs/` folder.
 
 **Problem:** `min x² + y²` subject to `x + y ≥ 4`
 
-![KKT Conditions](outputs/kkt_conditions.png)
+![KKT Conditions](imgs/kkt_conditions.png)
 
 **Key Insights:**
 - **Left**: The unconstrained minimum `(0,0)` lies in the **infeasible region** (red), so it is rejected
@@ -146,7 +146,7 @@ All generated figures are saved in the `outputs/` folder.
 
 **Problem:** `min (x-1)² + (y-2)² + (z-3)²` subject to `x + y + z = 6`, `x ≥ 1`
 
-![Combined Constraints](outputs/combined_constraints.png)
+![Combined Constraints](imgs/combined_constraints.png)
 
 **Key Insights:**
 - The **unconstrained minimum** `(1, 2, 3)` happens to satisfy **both constraints automatically**
